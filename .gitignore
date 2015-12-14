@@ -5,4 +5,21 @@ target/
 
 .idea/
 *.iml
+classes
 
+out/
+bin/
+.DS_Store
+.classpath
+.project
+.settings/
+*.ipr
+*.iml
+*.iws
+*.log
+test-output
+temp-testng*.xml
+build/
+.gradle
+*~
+\#*

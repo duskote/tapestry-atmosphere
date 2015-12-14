@@ -1,0 +1,48 @@
+description = "Tapestry Atmosphere project"
+def tapestryVersion = "5.4-rc-1"
+
+/**
+ * tapestry-atmosphere
+ * 	-> tapestry-atmosphere-demo
+ */
+subprojects {
+	apply plugin: "java"
+	apply plugin: "groovy"
+	apply plugin: "maven"
+	apply plugin: "eclipse"
+	apply plugin: "war"
+	apply plugin: "jetty"
+
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+
+	jettyRun.contextPath = ""
+
+	repositories {
+		mavenCentral()
+		maven { url "https://raw.github.com/uklance/releases/master" }
+	}
+	
+	tasks.withType(JavaCompile) {
+		options.encoding = "UTF-8"
+	}
+}
+
+
+project(":tapestry-atmosphere") {
+	dependencies {
+		compile "org.apache.tapestry:tapestry-core:$tapestryVersion"
+		compile "org.atmosphere:atmosphere-runtime:2.2.3"
+		compile "org.lazan:tapestry-offline:0.0.2"
+
+		compile "javax.servlet:servlet-api:2.5"
+		testCompile "junit:junit:4.4"
+	}
+}
+
+project(":tapestry-atmosphere-demo") {
+	dependencies {
+		compile project(":tapestry-atmosphere")
+		compile "org.lazan:tapestry-stitch:0.0.1"
+	}
+}

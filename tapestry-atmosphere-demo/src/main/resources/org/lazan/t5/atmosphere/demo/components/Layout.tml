@@ -23,7 +23,7 @@
 		</a>
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
-				<div class="container-fluid">
+				<div class="container">
 					<t:pagelink page="Index" class="brand">Tapestry Atmosphere Demo</t:pagelink>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
@@ -35,23 +35,23 @@
 			</div>
 		</div>
 
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
 					<div class="well sidebar-nav">
 						<ul class="nav nav-list">
 							<t:loop source="menuGroups" value="menuGroup">
 								<li class="nav-header">${menuGroup.label}</li>
 								<t:loop source="menuGroup.items" value="menuItem">
 									<li class="${pageClass}">
-										<t:pagelink page="prop:menuItem.page">${menuItem.label}</t:pagelink>
+										missing link<!-- <t:pagelink page="prop:menuItem.page">${menuItem.label}</t:pagelink> -->
 									</li>
 								</t:loop>
 							</t:loop>
 						</ul>
 					</div><!--/.well -->
 				</div><!--/span -->
-				<div class="span10">
+				<div class="col-md-10">
 					<t:body />
 				</div><!--/span -->
 			</div><!--/row -->

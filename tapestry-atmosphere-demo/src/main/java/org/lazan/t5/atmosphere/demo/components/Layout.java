@@ -2,14 +2,12 @@ package org.lazan.t5.atmosphere.demo.components;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.alerts.AlertStorage;
-import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.AssetSource;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
-@Import(stylesheet="context:bootstrap/css/bootstrap.css")
 public class Layout {
 	private static final MenuGroup[] MENU_GROUPS = {
 		new MenuGroup("Examples",

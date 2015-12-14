@@ -22,7 +22,8 @@ import org.lazan.t5.atmosphere.model.ContainerModel;
 import org.lazan.t5.atmosphere.model.PushTargetModel;
 import org.lazan.t5.atmosphere.services.PageGlobals;
 
-@Import(library = { "atmosphere.js", "tapestry-atmosphere.js" })
+//@Import(library = { "atmosphere.js", "tapestry-atmosphere.js" })
+@Import(module = { "tapestry-atmosphere" })
 public class Container {
 	@Parameter(name="options")
 	private JSONObject options;
@@ -77,7 +78,8 @@ public class Container {
 	void afterRenderBody() {
 		if (!pushTargets.isEmpty()) {
 			JSONObject config = createConfig();
-			javascriptSupport.addInitializerCall("atmosphereContainer", config);
+//			javascriptSupport.addInitializerCall("atmosphereContainer", config);
+			javascriptSupport.require("tapestry-atmosphere").invoke("atmosphereContainer").with(config);
 			environment.pop(ContainerModel.class);
 		}
 	}
