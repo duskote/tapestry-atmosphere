@@ -15,7 +15,7 @@
 	</head>
 
 	<body>
-		<a href="https://github.com/uklance/tapestry-atmosphere">
+		<a href="https://github.com/duskote/tapestry-atmosphere">
 			<img
 				style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" 
 				src="${context:images/forkme_right_red_aa0000.png}" 
@@ -24,7 +24,7 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<t:pagelink page="Index" class="brand">Tapestry Atmosphere Demo</t:pagelink>
+					<t:pagelink page="Index" class="navbar-brand">Tapestry Atmosphere Demo</t:pagelink>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li>
@@ -41,10 +41,12 @@
 					<div class="well sidebar-nav">
 						<ul class="nav nav-list">
 							<t:loop source="menuGroups" value="menuGroup">
-								<li class="nav-header">${menuGroup.label}</li>
+								<li class="dropdown-header">${menuGroup.label}</li>
 								<t:loop source="menuGroup.items" value="menuItem">
 									<li class="${pageClass}">
-										missing link<!-- <t:pagelink page="prop:menuItem.page">${menuItem.label}</t:pagelink> -->
+										<t:pagelink page="prop:menuItem.page">
+											${menuItem.label}
+										</t:pagelink>
 									</li>
 								</t:loop>
 							</t:loop>
@@ -56,7 +58,6 @@
 				</div><!--/span -->
 			</div><!--/row -->
 
-			<!-- <hr /> <footer> <p>&copy; Company 2012 </p> </footer> -->
-		</div><!--/.fluid-container -->
+		</div>
 	</body>
 </html>
